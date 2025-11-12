@@ -37,10 +37,10 @@ jobs:
       shell: pwsh
       run: |
         # Note: To publish to PowerShell Gallery, set PSGalleryApiKey secret
-        # and uncomment the Publish-Module command below
+        # and uncomment the Publish-PSResource command below
         Write-Host "Module built at: out/MyFirstMCP"
-        Write-Host "To publish to PowerShell Gallery, use: Publish-Module -Path ./out/MyFirstMCP -NuGetApiKey <key>"
-        # Publish-Module -Path ./out/MyFirstMCP -NuGetApiKey ${{ secrets.PSGalleryApiKey }} -Verbose
+        Write-Host "To publish to PowerShell Gallery, use: Publish-PSResource -Path ./out/MyFirstMCP -ApiKey <key>"
+        # Publish-PSResource -Path ./out/MyFirstMCP -ApiKey ${{ secrets.PSGalleryApiKey }} -Verbose
       
     - name: Upload module artifact
       uses: actions/upload-artifact@v4
