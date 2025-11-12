@@ -33,11 +33,14 @@ jobs:
     - name: Build and publish module
       run: dotnet publish MyFirstMCP.csproj --no-restore --configuration Release
       
-    - name: Pack as .NET tool
-      run: dotnet pack MyFirstMCP.csproj --no-restore --configuration Release
-      
-    - name: Publish to GitHub Packages
-      run: dotnet nuget push "nupkg/*.nupkg" --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
+    - name: Publish PowerShell Module
+      shell: pwsh
+      run: |
+        # Note: To publish to PowerShell Gallery, set PSGalleryApiKey secret
+        # and uncomment the Publish-Module command below
+        Write-Host "Module built at: out/MyFirstMCP"
+        Write-Host "To publish to PowerShell Gallery, use: Publish-Module -Path ./out/MyFirstMCP -NuGetApiKey <key>"
+        # Publish-Module -Path ./out/MyFirstMCP -NuGetApiKey ${{ secrets.PSGalleryApiKey }} -Verbose
       
     - name: Upload module artifact
       uses: actions/upload-artifact@v4
