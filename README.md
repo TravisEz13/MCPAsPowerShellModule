@@ -125,7 +125,7 @@ Download the latest release zip using the `gh` CLI, then extract it to your Powe
 
 ```pwsh
 # Download the latest release zip
-gh release download --repo TravisEz13/MCPAsPowerShellModule --pattern "MCPServerPS-*.zip" --output MCPServerPS.zip --clobber
+gh release download --repo daxian-dbw/MCPServerPS --pattern "MCPServerPS-*.zip" --output MCPServerPS.zip --clobber
 
 # Extract to your PowerShell module path (adjust destination as needed)
 Expand-Archive -Path MCPServerPS.zip -DestinationPath "$HOME\Documents\PowerShell\Modules" -Force
